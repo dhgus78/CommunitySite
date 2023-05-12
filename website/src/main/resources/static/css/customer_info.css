@@ -1,0 +1,44 @@
+@charset "UTF-8";
+       body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border: 1px solid #dddfe2;
+            border-radius: 3px;
+            padding: 20px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .profile-name {
+        	text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .profile-info {
+        	text-align: center;
+            font-size: 16px;
+            color: #65676b;
+            line-height: 1.6;
+        }
+        
+        .img_div {
+        	/* 자식 요소(.child)를 중앙 정렬하기 */
+  			display: flex;
+  			justify-content: center;
+        }

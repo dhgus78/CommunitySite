@@ -1,0 +1,34 @@
+@charset "UTF-8";
+@import url("/css/detail.css");
+.list-div .btn.btn-primary{
+	margin-right: 10px;
+}
+
+#table-border{
+	margin-bottom: 0px;
+}
+.table-title-box input{
+		height: 100%;
+		width: 100%;
+		border: 1px solid #ccc;
+		
+	}
+	.textarea-box textarea{
+		height: 220px;
+		width: 100%;
+		border: 1px solid #ccc;
+	}
+#open{	
+		position: relative;
+		float: right;
+		right: 100px;
+		margin-top: 5px;
+	}	
+	
+	#opne-label{
+		position: relative;
+		float: right;
+		margin:0px;
+		right: 10px;
+		
+	}

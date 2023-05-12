@@ -1,0 +1,261 @@
+@charset "UTF-8";
+/* body */
+	html ,body {
+			margin: 0px;
+			padding: 0px;
+			width: 100%;
+        	height: 100%;
+		}
+	
+
+
+/* 헤더 천제 부분 */
+	.header {
+		position: absolute;
+		top: 27.9px;
+		height: 200px;
+		width: 100%;
+		/* border-top: 5px solid #1b5ac2; */
+		border-bottom: 1px solid #ddd;	
+		margin: 0px;
+		background: #ffffff;
+		 }
+/* 검색창 */
+	.div-search-bar{
+				height: 100%;
+				width: 30%;
+				border: #ffffff;
+				background: #ffffff;
+				margin: 0px;
+				float: right;
+				}			
+	.search-bar{
+				position: absolute;
+				top:40%;
+				height: 40px;
+				width: 400px;
+				border: 1px solid #1b5ac2;
+				background: #ffffff;
+				}
+	.search-bar input{
+				position: absolute;
+				left:70px;
+				font-size: 16px;
+				width: 270px;
+				padding: 7px;
+				border: 0px;
+				outline: none;
+				float: left;
+				margin: 0px;
+				}	
+	.search-bar button {
+				width: 50px;
+				height: 38px;
+				border: 0px;
+				background: #1b5ac2;
+				outline: none;
+				float: right;
+				color: #ffffff;
+				}	
+		select {
+				position: absolute;
+				float: left;
+				height: 100%;
+				border: 0px;
+				text-align: center;
+	}
+
+/* 로고 */
+		.header-logo{
+			height: 100%;
+		    width: 300px;
+		    margin: 0px;
+		    float: left;
+		}
+		.header-logo img {
+			position: absolute;
+			top:10%;
+		    height: 150px;
+		    width: 300px;
+		    object-fit: contain;
+		}
+/* 메뉴바 */		
+	.menu-bar{
+		position: absolute;
+		height: 27px;
+    	width: 100%;
+		border: 0px;
+		margin: 0px;
+		left: 0;
+    	top: 0;
+		background: #f9f9f9;
+		border-bottom: 1px solid #ddd;		
+	}
+	.menu-bar ul {
+		position: absolute;
+		float:right;
+		list-style-type:none;
+		margin: 0px;
+		padding: 0px;
+		right: 10%;
+		top: 10%;
+	}
+	.menu-bar ul li{
+		display: inline-block;
+		border: 0px;
+		margin: 0px;
+		border-right: 1px solid #ddd;
+		padding-left: 5px;
+		padding-right: 10px;
+	}
+	.menu-bar ul li a{
+		border: 0px;
+		margin: 0px;
+		text-decoration:none;
+		font-size:10px;
+		color: black;
+	}
+	
+/* 본문 */
+	.body-div{
+		position: absolute;
+		top:228px;
+		height: 90%;
+		width: 100%;
+		 
+	}
+	.left-side{
+		position: relative;
+		height: 100%;
+		width: 15%;
+		float: left;
+	}
+	.center-content{
+		position: relative;
+		height: 100%;
+		width: 70%;
+		float: left;
+	}
+	.right-side{
+		position: relative;
+		height: 100%;
+		width: 15%;
+		float: right;
+	}
+	.center-content-table-div{
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+	}
+
+	.table-active{
+		text-align: center;
+	}
+	.list-div{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		/* 자식 요소(.child)를 중앙 정렬하기 */
+		display: flex;
+		justify-content: center;
+	}
+	.center-content .table .content {
+		height: 254px;
+		width: 100%;
+	}
+	.prev-next-table-div{
+		padding: 0px;
+		border: 1px solid #ddd;
+	}
+/*footer  */
+	.footer{
+	background: #f9f9f9;
+	border-top: 1px solid #ddd;
+	position: absolute;
+	top:850px;
+	height: 10%;
+	width: 100%;
+	bottom: 0;
+	}
+	
+/* 테이블 밑에 페이지 관련 */
+	.table-bottom-page-inf{
+		position: absolute;
+		height: 18%;
+		width: 100%;
+		/* 자식 요소(.child)를 중앙 정렬하기 */
+		display: flex;
+		justify-content: center;
+	}
+	.current-page{
+		position: relative;
+		float: right;
+	}
+	.center-pager{
+		position: relative;
+		float: left;
+		width: 500px;
+		/* 자식 요소(.child)를 중앙 정렬하기 */
+		display: flex;
+		justify-content: center;
+		
+	}
+	.current-page>.hidden{
+		display: none;
+	}
+	.current-page .text-orange{
+		color: red;
+	}
+	.center-pager .btn-prev-div{
+		/* 자식 요소(.child)를 중앙 정렬하기 */
+		display: flex;
+		justify-content: center;
+		float:left;
+		display: inline-block;
+		font-size: 10px;
+		width: 30%;
+		padding: 0px;
+		margin: 0px;
+	}
+	.center-pager .-list-center{
+		/* 자식 요소(.child)를 중앙 정렬하기 */
+		display: flex;
+		justify-content: center;
+		float:left;
+		display: inline-block;
+		list-style-type:none;
+		width: 30%;
+		padding: 0px;
+		margin: 0px;
+		padding-top: 7px;
+		list-style:none;
+	}
+	
+	.center-pager .btn-next-div{
+		/* 자식 요소(.child)를 중앙 정렬하기 */
+		display: flex;
+		justify-content: center;
+		float:left;
+		display: inline-block;
+		font-size: 10px;
+		width: 30%;
+		padding: 0px;
+		margin: 0px;
+	}
+	
+	
+	.center-pager .-list-center .page-list-number{
+		display: inline-block;
+		border: 0px;
+		margin: 0px;
+	}
+	
+	.-list-center .page-list-number{
+	text-align: center;
+	float: left;
+	padding-right: 8px;
+	color: black;
+	}
+	.btn btn-primary{
+		text-align: center;
+	}
+
