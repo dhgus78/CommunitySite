@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.keepgoing.website.dao.NoticeDao">
+  	<select id="getViewList" resultType="com.keepgoing.website.entity.NoticeView">
+  		select * from noticeview 
+			<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="query != null and query != ''">	 
+				${field} like '%${query}%' 
+			</if>
+			and pub = #{pub}
+			</trim>
+			order by regdate desc 
+			limit #{offset}, #{size} 
+  	</select>
+  	
+  	<select id="getMyViewList" resultType="com.keepgoing.website.entity.NoticeView">
+  		select * from noticeview 
+			<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="query != null and query != ''">	 
+				${field} = #{query} 
+			</if>
+			and pub = #{pub}
+			</trim>
+			order by regdate desc 
+			limit #{offset}, #{size} 
+  	</select>
+  	
+  	<select id="getCount" resultType="int">
+  		select count(id) count from noticeview
+		<where>
+		<if test="query != null and query != ''">	 
+			${field} like '%${query}%' 
+		</if>
+		and pub = #{pub}
+		</where>
+  	</select>
+  	
+  	<select id="getView" resultType="com.keepgoing.website.entity.NoticeView">
+  		select * from noticeview
+  		where id = #{id}
+  	</select>
+  	
+  	<select id="getNext" resultType="com.keepgoing.website.entity.Notice">
+  		select * from notice
+		where regdate &gt; (select regdate from notice where id = #{id}) and pub = true
+		limit 1
+  	</select>
+  	
+  	<select id="getMyNext" resultType="com.keepgoing.website.entity.NoticeView">
+  		select * from noticeview
+		where regdate &gt; (select regdate from noticeview where id = #{id})
+		and ${field} = #{query}
+		limit 1
+  	</select>
+  	
+  	<select id="getPrev" resultType="com.keepgoing.website.entity.Notice">
+  		select * from notice
+		where regdate &lt; (select regdate from notice where id = #{id}) and pub = true
+		order by regdate desc
+		limit 1
+  	</select>
+  	
+  	<select id="getMyPrev" resultType="com.keepgoing.website.entity.NoticeView">
+  		select * from noticeview
+		where regdate &lt; (select regdate from noticeview where id = #{id})
+		and ${field} = #{query}
+		order by regdate desc
+		limit 1
+  	</select>
+  	
+  	<update id="update" parameterType="com.keepgoing.website.entity.NoticeView">
+  		update notice 
+  		set 
+  			title = #{title},
+  			content = #{content},
+  			pub = #{pub},
+  			files = #{files}
+  		where id = #{id}
+  	</update>
+  	
+  	<insert id="insert" parameterType="com.keepgoing.website.entity.Notice">
+  		insert into notice(title, content, pub, files, memberId)
+  		values(#{title}, #{content}, #{pub}, #{files}, #{memberId})	
+  		
+  	<selectKey keyProperty="id" order="AFTER" resultType="int">
+  		SELECT LAST_INSERT_ID()
+  	</selectKey>
+  	</insert>
+  	
+  	
+  	<delete id="delete">
+  		delete from notice 
+  		where id = #{id}
+  	</delete>
+  	
+  	<delete id="deleteAll">
+  		delete from notice
+  		where id in
+  		<foreach item="id" index="index" collection="ids" 
+  		open="(" separator="," close=")">
+  			#{id}
+  		</foreach>
+  	</delete>
+  	
+  	<update id="updatePubAll">
+  		update notice
+  		set
+  			pub = #{pub}
+  		where id in 
+  		<foreach item="id" index="index" collection="ids" 
+  		open="(" separator="," close=")">
+  			#{id}
+  		</foreach>
+  		
+  	
+  		<!-- update notice
+  		set
+  			pub = case id
+  					<foreach item="id" collection="pubIds">
+  						when #{id} then 1
+  					</foreach>
+  					<foreach item="id" collection="closeIds">
+  						when #{id} then 0
+  					</foreach>
+  					end
+  		where id in 
+  		(
+  		<foreach item="id" collection="pubIds">
+  			#{id}
+  		</foreach>
+  			,
+  		<foreach item="id" collection="closeIds">
+  			#{id}
+  		</foreach>
+  		) -->
+  		
+  		<!-- update notice
+  		set
+  			pub = case id
+  					when 14 then 0
+  					when 15 then 0
+  					when 21 then 1
+  					when 22 then 1
+  					end
+  		where id in (14,15,21,22) -->
+  		
+  		
+  	</update>
+  	
+  	<update id="addHit" parameterType="com.keepgoing.website.entity.NoticeView">
+  	
+  		UPDATE notice
+  		SET hit = #{hit}
+  		WHERE id = #{id}
+  	
+  	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
