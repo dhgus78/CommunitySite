@@ -29,12 +29,19 @@ public class UserServiceImp implements UserService{
 	@Transactional
 	@Override
 	public void joinUser(UserVo userVo) {
+		//이메일 중복체크
+		UserVo checkResult = userMapper.checkEmailDuplicate(userVo);
 		
-		userVo.setPwd(passwordEncoder.encode(userVo.getPwd()));//비밀번호 인코딩후 재세팅
+		
+		if(checkResult==null) {//해당 이메일이 없을경우 가입 진행
+			userVo.setPwd(passwordEncoder.encode(userVo.getPwd()));//비밀번호 인코딩후 재세팅
 		 	
-		userMapper.saveUser(userVo);
-		userMapper.memberRole(userVo);
-		
+			userMapper.saveUser(userVo);
+			userMapper.memberRole(userVo);			
+		}else { //이미 해당 이메일이 존재 할 경우 예외 던지기
+			throw new RuntimeException("이미 등록된 이메일입니다.");
+
+		}
 	}
 
 

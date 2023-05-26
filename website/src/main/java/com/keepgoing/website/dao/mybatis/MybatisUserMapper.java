@@ -17,7 +17,14 @@ public class MybatisUserMapper implements UserMapper{
 	public MybatisUserMapper(SqlSession sqlSession) {
 		mapper = sqlSession.getMapper(UserMapper.class);
 	}
-
+	
+	@Override
+	public UserVo checkEmailDuplicate(UserVo userVo) {
+		UserVo result = mapper.checkEmailDuplicate(userVo);
+		
+		return result;
+	}
+	
 	@Override
 	public void saveUser(UserVo userVo) {
 		mapper.saveUser(userVo);
@@ -58,6 +65,8 @@ public class MybatisUserMapper implements UserMapper{
 		
 		return mapper.getMemberForTempPwd(email, name);
 	}
+
+	
 
 
 	

@@ -145,10 +145,15 @@ public class HomeController {
 	
 	//회원가입 process
 	@PostMapping("/join")
-	public String join(UserVo userVo) {
-	
+	public String join(UserVo userVo, Model model) {
+	try {
 		userService.joinUser(userVo);
 		return "redirect:/loginForm";
+	}catch (RuntimeException e) {
+		model.addAttribute("error", true);
+		model.addAttribute("exception", e.getMessage());
+        return "join";  // 이 부분은 실제 회원가입 실패시 보여줄 페이지로 변경해주세요
+		}
 	}
 	
 	@GetMapping("/temporaryPassword_form")

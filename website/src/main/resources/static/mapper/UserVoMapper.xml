@@ -5,6 +5,10 @@
 <mapper namespace="com.keepgoing.website.dao.UserMapper">
 
 	<!-- 회원가입 -->
+	<select id="checkEmailDuplicate" parameterType="com.keepgoing.website.entity.UserVo" resultType="com.keepgoing.website.entity.UserVo">
+		SELECT * FROM member WHERE email = #{email}
+	</select>
+	
 	<insert id="saveUser" parameterType="com.keepgoing.website.entity.UserVo">
 		insert into member(email, name, pwd) values(#{email}, #{name}, #{pwd})
 	</insert>
