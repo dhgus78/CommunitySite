@@ -28,7 +28,7 @@
 
 	<div class="header">
 		<div class="header-logo">
-			<a href="/index.html"><img src="/img/logo.png"></a>
+			<a href="/customer/main"><img src="/img/logo.png"></a>
 		</div>
 		<div class="div-search-bar">
 			<div class="search-bar">
@@ -67,7 +67,7 @@
 			</div>
 			<div class="reg-btn-div">
 				<input class="btn btn-primary" type="submit" value="등록">
-				<input id="cancle-btn" class="btn btn-primary" type="button" onclick="alert('페이지가 없습니다.');" value="취소">
+				<input id="cancle-btn" class="btn btn-primary" type="button" onclick="location.href='/customer/main';" value="취소">
 			</div>
 		</div>
 		</form>
