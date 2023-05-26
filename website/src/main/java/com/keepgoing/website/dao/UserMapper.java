@@ -9,6 +9,7 @@ import com.keepgoing.website.entity.UserVoRole;
 public interface UserMapper {
 	//회원가입
 	UserVo checkEmailDuplicate(UserVo userVo);
+	UserVo checkNameDuplicate(UserVo userVo);
 	void saveUser(UserVo userVo);
 	void memberRole(UserVo userVo);
 	

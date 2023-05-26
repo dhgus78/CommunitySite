@@ -9,6 +9,10 @@
 		SELECT * FROM member WHERE email = #{email}
 	</select>
 	
+	<select id="checkNameDuplicate" parameterType="com.keepgoing.website.entity.UserVo" resultType="com.keepgoing.website.entity.UserVo">
+		SELECT * FROM member WHERE name = #{name}
+	</select>
+	
 	<insert id="saveUser" parameterType="com.keepgoing.website.entity.UserVo">
 		insert into member(email, name, pwd) values(#{email}, #{name}, #{pwd})
 	</insert>

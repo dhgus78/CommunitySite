@@ -26,6 +26,13 @@ public class MybatisUserMapper implements UserMapper{
 	}
 	
 	@Override
+	public UserVo checkNameDuplicate(UserVo userVo) {
+		UserVo result = mapper.checkNameDuplicate(userVo);
+		
+		return result;
+	}
+	
+	@Override
 	public void saveUser(UserVo userVo) {
 		mapper.saveUser(userVo);
 		
@@ -65,6 +72,8 @@ public class MybatisUserMapper implements UserMapper{
 		
 		return mapper.getMemberForTempPwd(email, name);
 	}
+
+	
 
 	
 

@@ -30,17 +30,20 @@ public class UserServiceImp implements UserService{
 	@Override
 	public void joinUser(UserVo userVo) {
 		//이메일 중복체크
-		UserVo checkResult = userMapper.checkEmailDuplicate(userVo);
+		UserVo checkEmailResult = userMapper.checkEmailDuplicate(userVo);
+		//닉네임 중복체크
+		UserVo checkNameResult = userMapper.checkNameDuplicate(userVo);
 		
-		
-		if(checkResult==null) {//해당 이메일이 없을경우 가입 진행
+		if(checkEmailResult==null && checkNameResult==null) {//해당 이메일이 없을경우 가입 진행
 			userVo.setPwd(passwordEncoder.encode(userVo.getPwd()));//비밀번호 인코딩후 재세팅
 		 	
 			userMapper.saveUser(userVo);
 			userMapper.memberRole(userVo);			
-		}else { //이미 해당 이메일이 존재 할 경우 예외 던지기
+		}else if(checkEmailResult!=null){ //이미 해당 이메일이 존재 할 경우 예외 던지기
 			throw new RuntimeException("이미 등록된 이메일입니다.");
 
+		}else {//이미 해당 이름(닉네임)이 존재 할 경우 예외 던지기
+			throw new RuntimeException("이미 등록된 이름(닉네임)입니다.");
 		}
 	}
 
