@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>홈</title>
-<link href="/css/main.css" rel="stylesheet" type="text/css">
+<link href="/css/myWriting.css" rel="stylesheet" type="text/css">
 <link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link rel="icon" type="image/png" href="/img/logo_favicon.png" />
 <style>	
